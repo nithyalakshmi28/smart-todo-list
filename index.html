@@ -1,0 +1,207 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Smart To-Do List</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <i class="fa-solid fa-layer-group"></i>
+            TASKFLOW<span>.</span>
+        </div>
+
+        <p class="menu-title">MENU</p>
+
+        <nav>
+            <a href="#" class="nav-link active" data-filter="all">
+                <i class="fa-solid fa-border-all"></i>
+                All Tasks
+                <span id="all-count">0</span>
+            </a>
+
+            <a href="#" class="nav-link" data-filter="today">
+                <i class="fa-regular fa-calendar"></i>
+                Today
+            </a>
+
+            <a href="#" class="nav-link" data-filter="pending">
+                <i class="fa-regular fa-clock"></i>
+                Pending
+            </a>
+
+            <a href="#" class="nav-link" data-filter="completed">
+                <i class="fa-solid fa-circle-check"></i>
+                Completed
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">T</div>
+                <div>
+                    <h4>My Workspace</h4>
+                    <p>Personal Productivity</p>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="header">
+            <div>
+                <p class="welcome">WELCOME TO YOUR WORKSPACE</p>
+                <h1>My Tasks <span>✦</span></h1>
+                <p class="subtitle">Organize your day and get things done.</p>
+            </div>
+
+            <div class="date-display" id="current-date"></div>
+        </header>
+
+        <!-- STATISTICS -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <p>Total Tasks</p>
+                <h2 id="total-tasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                </div>
+                <p>Pending</p>
+                <h2 id="pending-tasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-check-double"></i>
+                </div>
+                <p>Completed</p>
+                <h2 id="completed-tasks">0</h2>
+            </div>
+
+        </section>
+
+        <!-- TASK SECTION -->
+        <section class="task-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2 id="section-title">All Tasks</h2>
+                    <p>Manage your daily activities</p>
+                </div>
+
+                <button class="add-btn" id="open-modal">
+                    <i class="fa-solid fa-plus"></i>
+                    Add New Task
+                </button>
+            </div>
+
+            <!-- SEARCH AND FILTER -->
+            <div class="toolbar">
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Search tasks...">
+                </div>
+
+                <select id="priority-filter">
+                    <option value="all">All Priorities</option>
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low">Low Priority</option>
+                </select>
+
+            </div>
+
+            <!-- TASK LIST -->
+            <div id="task-list" class="task-list"></div>
+
+            <div id="empty-state" class="empty-state">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <h3>No tasks found</h3>
+                <p>Add a new task to get started!</p>
+            </div>
+
+        </section>
+
+        <footer>
+            Made with <span>♥</span> for better productivity.
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- ADD / EDIT TASK MODAL -->
+<div class="modal-overlay" id="task-modal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+            <h2 id="modal-title">Create New Task</h2>
+            <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+
+        <form id="task-form">
+
+            <label for="task-title">Task Name</label>
+            <input type="text" id="task-title" placeholder="What needs to be done?" required maxlength="100">
+
+            <label for="task-description">Description</label>
+            <textarea id="task-description" placeholder="Add some details..."></textarea>
+
+            <div class="form-row">
+
+                <div>
+                    <label for="task-priority">Priority</label>
+                    <select id="task-priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="task-date">Due Date</label>
+                    <input type="date" id="task-date">
+                </div>
+
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" id="cancel-modal" class="cancel-btn">Cancel</button>
+                <button type="submit" class="save-btn">Save Task</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
